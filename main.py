@@ -2,6 +2,8 @@ import GLOBS
 from collections import deque
 from typing import Dict
 
+import config
+
 
 def getNextSlot( current_slot, current_sorcPoints, max_sorcPoints) -> str:
     next_slot = "2"
@@ -253,7 +255,7 @@ def explainEachHour_extraSpells(starting_sorcpoints: int, time_in_hours: int, so
                 # sorcPoints += sorcerer_points_per_warlock_slot
                 # while not (sorcPoints + sorcerer_points_per_warlock_slot) <= max_sorcPoints:
                 #     break
-                print("ERROR")
+
                 sorcPoints = max_sorcPoints
                 totalSorcPoints += sorcerer_points_per_warlock_slot
                 warlock_slots -= 1
@@ -269,12 +271,7 @@ def explainEachHour_extraSpells(starting_sorcpoints: int, time_in_hours: int, so
 
 
 if __name__ == '__main__':
-    __maxSorcPoints = 10
-    __startingSorcPoints = __maxSorcPoints
-    __sorcPointsPerWarlockSlot = 2
-    __timeInHours = 8
-
-    result = explainEachHour_extraSpells(__startingSorcPoints, __timeInHours, __sorcPointsPerWarlockSlot, __maxSorcPoints)
+    result = explainEachHour_extraSpells(config.__startingSorcPoints, config.__timeInHours, config.__sorcPointsPerWarlockSlot, config.__maxSorcPoints)
     print(f"{result}")
     prettyPrint(result)
 
